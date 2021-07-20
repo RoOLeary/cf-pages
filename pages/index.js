@@ -16,7 +16,7 @@ export default function Home() {
           Client Test: POC#1
         </h1>
 
-       
+        <Placeholder text={'Oh what a world'} />
         
       </main>
     </div>

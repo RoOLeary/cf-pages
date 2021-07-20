@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const PlContainer = styled.div`
     padding: 2em;
     textAlign: center; 
-    background: ${(color) => color ? color : ''}
+    background: ${(props) => props.color ? props.color : ''}
 `;
 
 const Placeholder = (props) => {
