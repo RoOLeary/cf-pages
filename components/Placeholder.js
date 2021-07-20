@@ -1,25 +1,35 @@
 import { useEffect, useState } from 'react'; 
+import styled from 'styled-components'; 
 
-const Placeholder = ({ text }) => {
+
+const PlContainer = styled.div`
+    padding: 2em;
+    textAlign: center; 
+    background: ${(color) => color ? color : ''}
+`;
+
+const Placeholder = (props) => {
+    console.log(props);
+    
     const [ blerp, setBlerp ] = useState('Pffft')
     
-    const Floodle = () => {
+    const Scmlort = () => {
         setTimeout(() => {
             setBlerp('Gah!')
         },3000)
     };
 
     useEffect(() => {
-        Floodle()
+        Scmlort()
     }, [])
 
     return(
-        <div>
+        <PlContainer color={'green'}>
             <h3>All I do is hold this place</h3>
             <p>(placeholding intensifies)</p>
-            <p>{text ? text : 'errf'}</p>
+            <p>{props.text ? props.text : 'errf'}</p>
             <h4>{blerp}</h4>
-        </div>
+        </PlContainer>
     )
 
 }
