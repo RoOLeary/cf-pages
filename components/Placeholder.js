@@ -24,7 +24,7 @@ const Placeholder = (props) => {
     }, [])
 
     return(
-        <PlContainer color={'green'}>
+        <PlContainer className={'green'}>
             <h3>All I do is hold this place</h3>
             <p>(placeholding intensifies)</p>
             <p>{props.text ? props.text : 'errf'}</p>
