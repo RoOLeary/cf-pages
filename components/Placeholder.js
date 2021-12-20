@@ -9,7 +9,7 @@ const PlContainer = styled.div`
 `;
 
 const Placeholder = (props) => {
-    console.log(props);
+    // console.log(props);
     
     const [ blerp, setBlerp ] = useState('Pffft')
     

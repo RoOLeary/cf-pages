@@ -4,6 +4,7 @@ import useSWRInfinite from "swr/infinite";
 import styles from '../styles/Home.module.css'
 import Placeholder from '../components/Placeholder';
 import Post from '../components/Post';
+import Slider from '../components/Slider';
 
 const fetcher = url => fetch(url).then(res => res.json());
 const PAGE_SIZE = 10;
@@ -81,6 +82,7 @@ export default function Home() {
                   ? 'No More Posts'
                   : 'Load More'}
       </button>
+      <Slider />
       </main>
     </div>
   )
