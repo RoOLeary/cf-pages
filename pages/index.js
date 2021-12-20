@@ -1,8 +1,32 @@
 import Head from 'next/head'
+import React, { useState, useEffect, useMemo } from "react";
+import useSWRInfinite from "swr/infinite";
 import styles from '../styles/Home.module.css'
 import Placeholder from '../components/Placeholder';
+import Post from '../components/Post';
+
+const fetcher = url => fetch(url).then(res => res.json());
+const PAGE_SIZE = 10;
+
 
 export default function Home() {
+
+  const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
+    index =>
+      `https://ronan-oleary.com/wp-json/wp/v2/posts?page=${index +
+        1}`,
+    fetcher,
+  );
+
+  
+  const posts = data ? [].concat(...data) : [];
+  const isLoadingInitialData = !data && !error;
+  const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
+  const isEmpty = data?.[0]?.length === 0;
+  const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
+  const isRefreshing = isValidating && data && data.length === size
+  
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +41,13 @@ export default function Home() {
         </h1>
 
         <Placeholder text={'Oh what a world'} />
-        
+        <ul>
+            {posts.map((post, idx) => (
+              <Post post={post} key={idx} />
+            ))}
+
+
+        </ul>
       </main>
     </div>
   )
