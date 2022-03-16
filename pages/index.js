@@ -9,23 +9,42 @@ import Slider from '../components/Slider';
 const fetcher = url => fetch(url).then(res => res.json());
 const PAGE_SIZE = 10;
 
+const initialState = {
+  data: [],
+  isLoading: true
+}
 
 export default function Home() {
 
-  const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
-    index =>
-      `https://ronan-oleary.com/wp-json/wp/v2/posts?page=${index +
-        1}`,
-    fetcher,
-  );
+  // const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
+  //   index =>
+  //     `https://thenextweb.com/next-api/trending`,
+  //   fetcher,
+  // );
 
+  // useEffect(() => {
+
+  // })
+
+
+
+  const [data, setData] = useState(initialState.data);
+
+  useEffect(() => {
+    const result = fetch('https://next.local.tnw.dev/next-api/trending')
+      .then(res => res.json())
+      console.log(result.data);
+    //setData(result.data);
+  },[]);
+
+ 
   
   const posts = data ? [].concat(...data) : [];
   const isLoadingInitialData = !data && !error;
-  const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
-  const isEmpty = data?.[0]?.length === 0;
-  const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
-  const isRefreshing = isValidating && data && data.length === size
+  const isLoadingMore = false;
+  // const isEmpty = data?.[0]?.length === 0;
+  const isReachingEnd = false; //isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
+  const isRefreshing = false; //isValidating && data && data.length === size
   
 
   return (
@@ -82,7 +101,7 @@ export default function Home() {
                   ? 'No More Posts'
                   : 'Load More'}
       </button>
-      <Slider />
+      {/* <Slider /> */}
       </main>
     </div>
   )
