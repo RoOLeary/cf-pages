@@ -84,7 +84,7 @@ export default function Slider() {
             };
         }
     }, [activeSlide, isAutoPlay, transitionSlide]);
-
+  
     return(
         <>
             
@@ -100,7 +100,7 @@ export default function Slider() {
                         <p className="text__background font-serif">Trigger Media</p>
                         </div>
                         <div className="flex__item flex__item--right"></div>
-                        <Image alt="Image" className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/2E8A9134-scaled.jpg" />
+                        <Image alt="Image" layout="" width={700} height={475} src="https://isabelvaz.com/wp-content/uploads/2020/03/2E8A9134-scaled.jpg" />
                     </div>
 
                     <div className={`flex__container flex--darkblue  ${activeSlide == 2 ? `flex--active` : 'animate--start' }`} data-slide="2">
@@ -116,7 +116,7 @@ export default function Slider() {
                         <p className="text__background font-serif">Gallery</p>
                         </div>
                         <div className="flex__item flex__item--right"></div>
-                        <Image alt="Image" className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/IMG_0694.jpeg" />
+                        <Image alt="Image" layout="" width={700} height={475} src="https://isabelvaz.com/wp-content/uploads/2020/03/IMG_0694.jpeg" />
                     </div>
 
                     <div className={`flex__container flex--blue  ${activeSlide == 3 ? `flex--active` : 'animate--start' }`} data-slide="3">
@@ -132,7 +132,7 @@ export default function Slider() {
                         <h1 className="text__background font-serif">About</h1>
                         </div>
                         <div className="flex__item flex__item--right"></div>
-                        <Image alt="Image"  className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/IMG_0481-682x1024.jpeg" />
+                        <Image alt="Image"  layout="" width={700} height={475} src="https://isabelvaz.com/wp-content/uploads/2020/03/IMG_0481-682x1024.jpeg" />
                     </div>
 
                     <div className={`flex__container flex--red  ${activeSlide == 4 ? `flex--active` : 'animate--start' }`} data-slide="4">
@@ -148,7 +148,7 @@ export default function Slider() {
                         <p className="text__background font-serif">Videos</p>
                         </div>
                         <div className="flex__item flex__item--right"></div>
-                        <Image alt="Image" className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/isabel.png" />
+                        <Image alt="Image" layout="" width={700} height={475} src="https://isabelvaz.com/wp-content/uploads/2020/03/isabel.png" />
                     </div>
                     
                     <div className={`flex__container flex--yellow ${activeSlide == 5 ? `flex--active` : 'animate--start' }`} data-slide="5">
@@ -165,7 +165,7 @@ export default function Slider() {
                         <p className="text__background font-serif">Lessons</p>
                         </div>
                         <div className="flex__item flex__item--right"></div>
-                        <Image alt="Image" className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/IMG_0874-scaled.jpeg" />
+                        <Image alt="Image" layout="" width={700} height={475} src="https://isabelvaz.com/wp-content/uploads/2020/03/IMG_0874-scaled.jpeg" />
                     </div>
                     
                 </div>
