@@ -3,8 +3,6 @@ import Layout from '../../components/layout'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 
-
-
 export default function Post({ post }){
     const router = useRouter()
     if(router.isFallback) {
