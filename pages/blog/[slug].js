@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Layout from '../../components/layout'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
-import Image from 'next/image'
+
 
 export default function Post({ post }){
     const router = useRouter()
@@ -18,7 +18,6 @@ export default function Post({ post }){
                           {post ? post[0].title.rendered : ''}
                         </h1>
                         <small><strong>By Ro</strong></small>
-                        <Image src="//placedog.net/1200/350" className="mx-auto mt-4" />
                         <div className="max-w-m font-serif leading-loose tracking-wide text-lg text-black mt-6 mb-12 format-content" dangerouslySetInnerHTML={{ __html : post ? post[0].content.rendered: 'Loading'}} />
                         <br />
                         <Link href="/blog">Back to blog</Link>
