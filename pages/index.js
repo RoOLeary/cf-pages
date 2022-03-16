@@ -101,7 +101,6 @@ export default function Home() {
                   ? 'No More Posts'
                   : 'Load More'}
       </button>
-      {/* <Slider /> */}
       </main>
     </div>
   )

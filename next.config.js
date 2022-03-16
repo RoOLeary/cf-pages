@@ -1,5 +1,14 @@
 module.exports = {
   reactStrictMode: true,
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.module.rules.push({
+      test: /\.my-file$/i,
+      loader: "raw-loader",
+    });
+
+    // Important: return the modified config
+    return config;
+  },
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
@@ -7,11 +16,8 @@ module.exports = {
     return {
       '/': { page: '/' },
       '/about': { page: '/about' },
+      '/blog': { page: '/blog' },
     }
-  },
-  images: {
-    domains: ['isabelvaz.com'],
-    // imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-  },
+  }
 }
 
