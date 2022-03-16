@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Layout from '../../components/layout'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
+import Image from 'next/image'
 
 
 export default function Post({ post }){
@@ -9,6 +10,11 @@ export default function Post({ post }){
     if(router.isFallback) {
        console.log('Loading...')
     }
+
+    const myLoader = ({ src, width, quality }) => {
+        return `//placedog.net/${500}/${500}&q=${quality || 75}`
+    }
+    
     return(
         <Layout>
             <div className="container mx-auto md:px-12">
@@ -18,6 +24,13 @@ export default function Post({ post }){
                           {post ? post[0].title.rendered : ''}
                         </h1>
                         <small><strong>By Ro</strong></small>
+                        <Image
+                            loader={myLoader}
+                            src="//placedog.net/1200/350"
+                            alt="Landscape picture"
+                            width={500}
+                            height={500}
+                        />
                         <div className="max-w-m font-serif leading-loose tracking-wide text-lg text-black mt-6 mb-12 format-content" dangerouslySetInnerHTML={{ __html : post ? post[0].content.rendered: 'Loading'}} />
                         <br />
                         <Link href="/blog">Back to blog</Link>
