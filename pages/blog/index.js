@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import useSWRInfinite from "swr/infinite";
-import Layout from '../../components/Layout';
-import Post from "../../components/Post";
+import Layout from './../../components/Layout'
+import Post from "./../../components/Post";
 
 
 const fetcher = url => fetch(url).then(res => res.json());
