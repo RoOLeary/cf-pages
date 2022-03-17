@@ -34,7 +34,6 @@ export default function Home() {
     const result = fetch('https://ronan-oleary.com/wp-json/wp/v2/posts')
       .then(res => res.json())
       .then(data => setData(data));
-      console.log(data);
   },[]);
 
  

@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 export default function Post({ post }) {
     
     const { title, excerpt, slug, categories } = post;
-    // console.log(categories);
+   
     return (
       <li className="Card">
           <Link href={`/blog/${slug}`} as={`/blog/${slug}`}>
