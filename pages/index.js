@@ -5,7 +5,6 @@ import styles from '../styles/Home.module.css'
 import Placeholder from '../components/Placeholder';
 import Post from '../components/Post';
 
-
 const fetcher = url => fetch(url).then(res => res.json());
 const PAGE_SIZE = 10;
 
@@ -18,7 +17,8 @@ export default function Home() {
 
   // const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
   //   index =>
-  //     `https://thenextweb.com/next-api/trending`,
+  //   `https://ronan-oleary.com/wp-json/wp/v2/posts?page=${index +
+  //     1}`,
   //   fetcher,
   // );
 
@@ -31,10 +31,10 @@ export default function Home() {
   const [data, setData] = useState(initialState.data);
 
   useEffect(() => {
-    const result = fetch('https://next.local.tnw.dev/next-api/trending')
+    const result = fetch('https://ronan-oleary.com/wp-json/wp/v2/posts')
       .then(res => res.json())
-      console.log(result.data);
-    //setData(result.data);
+      .then(data => setData(data));
+      console.log(data);
   },[]);
 
  
@@ -101,6 +101,7 @@ export default function Home() {
                   ? 'No More Posts'
                   : 'Load More'}
       </button>
+      
       </main>
     </div>
   )
